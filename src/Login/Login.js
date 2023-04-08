@@ -1,9 +1,10 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
+import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthProvider';
+import { AuthContext } from '../contexts/AuthProvider';
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { loginUser, googleLogin, loading } = useContext(AuthContext);
@@ -13,13 +14,6 @@ const Login = () => {
 
     // todo google provider
     const googleProvider = new GoogleAuthProvider();
-
-    // // todo navigation section
-    // const location = useLocation();
-    // const navigate = useNavigate();
-
-    // // todo where to navigate
-    // const from = location.state?.from?.pathname || '/';
 
     const handleLogin = data => {
         console.log(data);
