@@ -4,9 +4,7 @@ import { router } from './Router/router';
 
 function App() {
   return (
-    <div >
-      <h5>This is a test</h5>
-      <button className='btn btn-primary'>test</button>
+    <div>
       <RouterProvider router={router}></RouterProvider>
     </div>
   );
