@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductList = ({ product, setDataDetail }) => {
-    const { title, img, price, description } = product;
+    const { title, img, price, description, facility } = product;
     return (
         <div>
             <div className='h-[450px] p-8 rounded-xl shadow-xl'>
