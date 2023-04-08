@@ -11,7 +11,7 @@ const Subscribe = () => {
                     <div className='flex flex-col md:flex-row justify-center items-center mt-10'>
                         <div className='shadow-2xl p-5 md:w-1/2 rounded-xl'>
                             <input type="text" placeholder="Type here" className="input w-full max-w-xs mr-0 md:mr-2 mb-2 md:mb-0" />
-                            <button class="btn btn-primary">Search Now</button>
+                            <button className="btn btn-primary">Search Now</button>
                         </div>
                     </div>
                 </div>
