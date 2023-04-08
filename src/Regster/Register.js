@@ -2,8 +2,9 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
+import Spinner from '../Spinner/Spinner';
 
 const Register = () => {
 
@@ -14,6 +15,7 @@ const Register = () => {
     const [registrationError, setRegistrationError] = useState('');
 
     const googleProvider = new GoogleAuthProvider();
+    const navigate = useNavigate();
 
 
     // todo handle signup with email and password
@@ -24,6 +26,7 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
                 toast("User created successfully");
                 const userInfo = {
                     displayName: data.name
@@ -44,15 +47,16 @@ const Register = () => {
         googleLogin(googleProvider)
             .then(result => {
                 const user = result.user;
+                navigate('/');
                 console.log(user);
             })
             .catch(error => console.error(error));
     };
 
     // todo loading function
-    // if (loading) {
-    //     return <Spinner></Spinner>;
-    // }
+    if (loading) {
+        return <Spinner></Spinner>;
+    }
 
     return (
         <div>

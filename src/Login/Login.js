@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider';
+import Spinner from '../Spinner/Spinner';
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { loginUser, googleLogin, loading } = useContext(AuthContext);
@@ -15,6 +16,8 @@ const Login = () => {
     // todo google provider
     const googleProvider = new GoogleAuthProvider();
 
+    const navigate = useNavigate();
+
     const handleLogin = data => {
         console.log(data);
         setLoginError('');
@@ -22,6 +25,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
                 toast('Logged in successfully');
             })
             .catch(error => {
@@ -35,15 +39,16 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate('/');
                 toast('Logged in successfully');
             })
             .catch(error => console.error(error));
     };
 
     // todo loading spinner
-    // if (loading) {
-    //     return <Spinner></Spinner>;
-    // }
+    if (loading) {
+        return <Spinner></Spinner>;
+    }
 
     return (
         <div>
