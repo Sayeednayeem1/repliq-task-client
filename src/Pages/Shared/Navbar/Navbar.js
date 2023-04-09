@@ -14,15 +14,15 @@ const Navbar = () => {
     };
 
     const navItems = <React.Fragment>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/productList'>Product List</Link></li>
+        <li className="text-xl font-bold"><Link to='/'>Home</Link></li>
+        <li className="text-xl font-bold"><Link to='/productList'>Product List</Link></li>
         {
             user?.uid ?
                 <li className="text-xl font-bold"><button onClick={handleLogout}>Log Out</button></li>
                 :
-                <li><Link to='/login'>Login</Link></li>
+                <li className="text-xl font-bold"><Link to='/login'>Login</Link></li>
         }
-        <li><Link to='/dashboard'>DashBoard</Link></li>
+        <li className="text-xl font-bold"><Link to='/dashboard'>DashBoard</Link></li>
     </React.Fragment>
 
     return (
@@ -44,8 +44,8 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <div className="navbar-end hidden lg:block">
-                    <a className="btn">Get started</a>
+                <div className="navbar-end hidden lg:block text-xl font-bold">
+                    <p>{user?.displayName}</p>
                 </div>
                 <label htmlFor="dashboard-drawer" tabIndex={0} className="btn btn-ghost lg:hidden navbar-end ">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>

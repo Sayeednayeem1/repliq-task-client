@@ -1,6 +1,9 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithCredential, signInWithEmailAndPassword, signInWithPhoneNumber, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import app from '../firebase/firebase.config';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -36,6 +39,21 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
+    //todo phone verification sms
+    const sendVerificationCode = (phoneNumber, recaptcha) => {
+        const appVerifier = new firebase.auth.RecaptchaVerifier(recaptcha);
+        return signInWithPhoneNumber(auth, phoneNumber, appVerifier);
+    };
+    const signInWithCode = (verificationId, code) => {
+        const credential = firebase.auth.PhoneAuthProvider.credential(
+            verificationId,
+            code
+        );
+        return signInWithCredential(auth, credential);
+    };
+
+
+
     // todo to monitor the changes.
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -53,7 +71,9 @@ const AuthProvider = ({ children }) => {
         updateUser,
         user,
         googleLogin,
-        loading
+        loading,
+        sendVerificationCode,
+        signInWithCode
     };
     return (
         <AuthContext.Provider value={authInfo}>
