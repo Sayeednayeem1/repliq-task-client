@@ -23,7 +23,10 @@ const ProductLists = () => {
     })
 
     return (
-        <div className='max-w-[1440px] mx-auto mb-8'>
+        <div className='max-w-[1440px] mx-auto mt-14 mb-16'>
+            <div className='mb-10'>
+                <h5 className='text-center text-4xl text-transparent bg-clip-text bg-gradient-to-r from-[#0FCFEC] to-[#19D3AE]'>Services We provide</h5>
+            </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
                 {
                     products.map(product => <ProductList
