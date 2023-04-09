@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductList = ({ product, setDataDetail }) => {
+const ProductList = ({ product, setDataDetail, addToCart }) => {
     const { title, img, price, description, facility } = product;
     return (
         <div>
@@ -11,7 +11,7 @@ const ProductList = ({ product, setDataDetail }) => {
                 <p className='mt-2'>{description}</p>
                 <div className='mt-2'>
                     <label htmlFor="my-modal-3" className="btn btn-primary bg-gradient-to-r from-[#0FCFEC] to-[#19D3AE] text-white font-bold border-none mr-2" onClick={() => setDataDetail(product)}>Details</label>
-                    <button className="btn btn-primary bg-gradient-to-r from-[#0FCFEC] to-[#19D3AE] text-white font-bold border-none">Add To Cart</button>
+                    <button className="btn btn-primary bg-gradient-to-r from-[#0FCFEC] to-[#19D3AE] text-white font-bold border-none" onClick={() => addToCart(product)}>Add To Cart</button>
                 </div>
             </div>
         </div>

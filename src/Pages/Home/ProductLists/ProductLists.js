@@ -7,6 +7,11 @@ const ProductLists = () => {
 
     const [dataDetail, setDataDetail] = useState(null);
 
+    const [cart, setCart] = useState([]);
+    const addToCart = (product) => {
+        setCart([...cart, product]);
+    }
+
     const { data: products = [] } = useQuery({
         queryKey: ['products'],
         queryFn: async () => {
@@ -25,6 +30,7 @@ const ProductLists = () => {
                         key={product._id}
                         product={product}
                         dataDetail={dataDetail}
+                        addToCart={addToCart}
                         setDataDetail={setDataDetail}
                     ></ProductList>)
                 }
