@@ -4,7 +4,16 @@ import Navbar from '../Pages/Shared/Navbar/Navbar';
 
 const DashBoardLayout = () => {
     return (
-        <div>
+        <div className='bg-[#E9EEF1] bg-cover min-h-screen'>
+            <style>
+                {`
+                    html, body {
+                        height: 100%;
+                        margin: 0;
+                        padding: 0;
+                    }
+                `}
+            </style>
             <Navbar></Navbar>
             <div className="drawer drawer-mobile lg:max-w-[1440px] mx-auto my-12">
                 <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
@@ -14,7 +23,7 @@ const DashBoardLayout = () => {
                 </div>
                 <div className="drawer-side shadow-xl mr-0 md:mr-12">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+                    <ul className="menu p-4 w-80 shadow-2xl rounded-lg text-base-content">
                         <li><Link to='/dashboard'>Customer List</Link></li>
                         <li><Link to='/dashboard/productsListDashboard'>Products List</Link></li>
                         <li><Link to='/dashboard/ordersList'>Order List</Link></li>
