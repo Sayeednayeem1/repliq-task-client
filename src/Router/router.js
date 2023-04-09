@@ -1,14 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import CustomerList from "../DashBoard/CustomerList/CustomerList";
-import DashBoard from "../DashBoard/DashBoard/DashBoard";
 import OrderList from "../DashBoard/OrderList/OrderList";
 import ProductsListDashboard from "../DashBoard/ProductsListDashboard/ProductsListDashboard";
 import UsersList from "../DashBoard/UsersList/UsersList";
 import DashBoardLayout from "../layout/DashBoardLayout";
 import Main from "../layout/Main";
 import Login from "../Login/Login";
+import PageNotFound from "../PageNotFound/PageNotFound";
 import Home from "../Pages/Home/Home/Home";
-import ProductList from "../Pages/Home/ProductLists/ProductList";
 import ProductLists from "../Pages/Home/ProductLists/ProductLists";
 import Register from "../Regster/Register";
 import PrivateRoute from "./PrivateRoute";
@@ -58,5 +57,9 @@ export const router = createBrowserRouter([
                 element: <UsersList></UsersList>
             }
         ]
+    },
+    {
+        path: '*',
+        element: <PageNotFound></PageNotFound>
     }
 ])
