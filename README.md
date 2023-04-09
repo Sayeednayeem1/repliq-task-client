@@ -1,3 +1,6 @@
+This is an assignment Projects of REPLIQ.
+Live Website Link: https://repliq-task-32b9a.web.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
