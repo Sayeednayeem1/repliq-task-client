@@ -3,6 +3,7 @@ import CustomerList from "../DashBoard/CustomerList/CustomerList";
 import DashBoard from "../DashBoard/DashBoard/DashBoard";
 import OrderList from "../DashBoard/OrderList/OrderList";
 import ProductsListDashboard from "../DashBoard/ProductsListDashboard/ProductsListDashboard";
+import UsersList from "../DashBoard/UsersList/UsersList";
 import DashBoardLayout from "../layout/DashBoardLayout";
 import Main from "../layout/Main";
 import Login from "../Login/Login";
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
                 path: '/dashboard/ordersList',
                 element: <OrderList></OrderList>
             },
+            {
+                path: '/dashboard/usersList',
+                element: <UsersList></UsersList>
+            }
         ]
     }
 ])
