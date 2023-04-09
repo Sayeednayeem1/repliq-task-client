@@ -48,7 +48,7 @@ const Navbar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <div className="navbar-end hidden md:block">
+                    <div className="navbar-end hidden lg:block">
                         {
                             user?.displayName ?
                                 <h1 className='text-xl font-bold'>{user?.displayName}</h1>
